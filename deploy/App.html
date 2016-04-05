@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RallyGrid</title>
+
+    <script type="text/javascript" src="/apps/2.0/sdk.js"></script>
+
+    <script type="text/javascript">
+        Rally.onReady(function () {
+                Ext.create("Rally.data.wsapi.TreeStoreBuilder").build({models:["userstory"],autoLoad:!0,context:{workspace:"https://rally1.rallydev.com/slm/webservice/v2.0/workspace/50876644101",project:"https://rally1.rallydev.com/slm/webservice/v2.0/project/50891172431"},enableHierarchy:!0,filters:[{property:"Iteration.Name",operator:"=",value:"March"},{property:"Project.Name",operator:"=",value:"Condor"}]}).then({success:function(store){Ext.create("Ext.Container",{width:1e3,height:1e3,border:5,items:[{xtype:"rallytreegrid",columnCfgs:["DisplayColor","Name","ScheduleState","Blocked","TaskEstimateTotal","TaskRemainingTotal","Owner","Notes"],store:store}],renderTo:Ext.getBody()})}});
+
+            Rally.launchApp('CustomApp', {
+                name:"RallyGrid",
+	            parentRepos:""
+            });
+
+        });
+    </script>
+
+
+    <style type="text/css">
+        
+    </style>
+</head>
+<body>
+</body>
+</html>
